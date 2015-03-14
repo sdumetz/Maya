@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/supervisor -e 'node,js,ejs,html,css' app.js",
+    "start": "NODE_ENV=development ./node_modules/.bin/supervisor -e 'node,js,ejs,html,css' index.js",
     "test": "./node_modules/.bin/mocha"
   },
   "main": "index.js",
