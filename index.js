@@ -14,14 +14,23 @@ app.get('/', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');
 });
 app.use(express.static('public'));
-app.use('/dist',express.static('dist'));
+//app.use('/dist',express.static('dist'));
+
+
 
 io.on('connection', function (socket) {
   socket.join('room');
   socket.on('update', function (data) {
-    model.update(data,function(data){
+    model.updateCell(data,function(data){
       io.to('room').emit('update',data);
     })
-
   });
+  socket.on("import",function(data){
+    model.fetch(function(err,doc){
+      if(err){
+        console.log("model.fetch : "+err);
+      }
+      socket.emit("import",doc);
+    });
+  })
 });

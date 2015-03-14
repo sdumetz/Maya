@@ -22,7 +22,8 @@
     "grunt":"*",
     "grunt-bower":"*",
     "grunt-browserify":"*",
-    "grunt-supervisor":"*"
+    "grunt-supervisor":"*",
+    "grunt-contrib-less":"*"
   },
   "devDependencies": {
     "supervisor":"*",

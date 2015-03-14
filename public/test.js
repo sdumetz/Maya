@@ -10,18 +10,18 @@ var y0 = 0;
 
 
 function create_img(L, C, src){
+  console.log("create img")
 x = (C - L)*tile_size + x0 ;
 y = (1+0.5*(C + L))*tile_size+y0;
 
-document.body.innerHTML = document.body.innerHTML + "<img src="+ src + " style='position:absolute;left:" + x + ";top:" + y+ "'></img>";
+document.body.innerHTML = document.body.innerHTML + "<img src="+ src + " style='left:" + x + ";top:" + y+ "'></img>";
 };
 
 function hello(){
 
-
 // afficher les 25 cases / moitié haute
 for (i=1;i<=grid_size;i++){
-for (j=1;j<=i;j++){	
+for (j=1;j<=i;j++){
 L = i-j+1;
 C = j;
 if(Math.random()>0.5){src = "test.png";}else{src = "mine.png"};
