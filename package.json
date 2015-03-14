@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+     "prepublish": "./node_modules/.bin/bower install",
     "start": "NODE_ENV=development ./node_modules/.bin/supervisor -e 'node,js,ejs,html,css' app.js",
     "test": "./node_modules/.bin/mocha"
   },
@@ -15,7 +16,8 @@
     "express": "3.4.8",
     "swagger-node-express": "~2.0",
     "less-middleware": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "bower":"*"
   },
   "devDependencies": {
     "supervisor":"*",
