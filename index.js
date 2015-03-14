@@ -29,6 +29,7 @@ io.on('connection', function (socket) {
       if(err){
         console.log("model.fetch : "+err);
       }
+      console.log("model fetch")
       socket.emit("import",doc);
     });
   })
