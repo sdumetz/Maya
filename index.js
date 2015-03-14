@@ -46,18 +46,24 @@ io.on('connection', function (socket) {
  * ***************************/
 var routine = function(){
   //Reset ressources that must be.
-  model.ressources.population.stock = 0;
+  model.ressources.habitant.stock = 0;
   model.fetch(function(err,doc){
     doc.cases.forEach(function(tile){
       model.updateRessources(tile);
     });
+
     Object.keys(model.ressources).every(function(ressource){
-      if(ressource.vital && ressource.stock <= 0){
+      if(ressource.stock < 0){
         console.log("YOU LOOSE");
-        io.to("room").emit("loose");
       }
+    });
+    io.to("room").emit('routine',function(){
+      ressources:model.ressources
     })
+    setTimeout(routine,10000);
   });
 }
+routine();
+
 
 });
