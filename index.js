@@ -24,7 +24,7 @@ io.on('connection', function (socket) {
     model.updateCell(data,function(err,changedData){
       if(!err){
         console.log("changedData:",changedData)
-        io.to('room').emit('update',changedData);
+        io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
       }else{
         console.log("socket.on Change :"+err);
       }
@@ -51,13 +51,15 @@ var routine = function(){
     doc.cases.forEach(function(tile){
       model.updateRessources(tile);
     });
-
     Object.keys(model.ressources).every(function(ressource){
       if(ressource.stock < 0){
         console.log("YOU LOOSE");
+        return false;
+      }else{
+        return true;
       }
     });
-    io.to("room").emit('routine',function(){
+    io.to("room").emit('routine',{
       ressources:model.ressources
     })
     setTimeout(routine,10000);
