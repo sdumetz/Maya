@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-     "prepublish": "./node_modules/.bin/bower install",
-    "start": "./node_modules/.bin/supervisor -e 'node,js,ejs,html,css' index.js",
+     "prepublish": "./node_modules/.bin/grunt install",
+    "start": "./node_modules/.bin/grunt start",
     "test": "./node_modules/.bin/mocha"
   },
   "main": "index.js",
@@ -13,11 +13,15 @@
     "windows"
   ],
   "dependencies": {
-    "express": "3.4.8",
-    "swagger-node-express": "~2.0",
+    "express": "*",
     "less-middleware": "*",
     "socket.io": "*",
-    "bower":"*"
+    "bower":"*",
+    "browserify":"*",
+    "grunt":"*",
+    "grunt-bower":"*",
+    "grunt-browserify":"*",
+    "grunt-supervisor":"*"
   },
   "devDependencies": {
     "supervisor":"*",
