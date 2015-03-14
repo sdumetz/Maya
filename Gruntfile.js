@@ -7,7 +7,8 @@ module.exports = function(grunt) {
         dest:"public/dist/bundle.js",
       },
       options: {
-        watch:true
+        watch:true,
+        ignore:"nedb"
       }
     },
     bower: {
