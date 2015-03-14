@@ -1,0 +1,26 @@
+{
+  "name": "maya",
+  "version": "0.0.1",
+  "authors": [
+    "s.dumetz@holusion.com"
+  ],
+  "main": "index.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests",
+    "ressources/vendor"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "components-bootstrap": "~3.1.1"
+  },
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT"
+}
