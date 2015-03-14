@@ -15,7 +15,9 @@ app.use(express.static('public'));
 //app.use('/dist',express.static('dist'));
 
 
-
+/*************************
+ * Model synchronisation *
+ * **********************/
 io.on('connection', function (socket) {
   socket.join('room');
   socket.on('change', function (data) {
@@ -38,4 +40,24 @@ io.on('connection', function (socket) {
       socket.emit("import",doc);
     });
   })
+
+/******************************
+ * Game Coroutines            *
+ * ***************************/
+var routine = function(){
+  //Reset ressources that must be.
+  model.ressources.population.stock = 0;
+  model.fetch(function(err,doc){
+    doc.cases.forEach(function(tile){
+      model.updateRessources(tile);
+    });
+    Object.keys(model.ressources).every(function(ressource){
+      if(ressource.vital && ressource.stock <= 0){
+        console.log("YOU LOOSE");
+        io.to("room").emit("loose");
+      }
+    })
+  });
+}
+
 });
