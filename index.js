@@ -18,10 +18,15 @@ app.use(express.static('public'));
 
 io.on('connection', function (socket) {
   socket.join('room');
-  socket.on('update', function (data) {
-    model.updateCell(data,function(data){
+  socket.on('change', function (data) {
+    model.updateCell(data,function(err,changedData){
+      if(!err){
+        console.log("changedData:",changedData)
+        io.to('room').emit('update',changedData);
+      }else{
+        console.log("socket.on Change :"+err);
+      }
 
-      io.to('room').emit('update',data);
     })
   });
   socket.on("import",function(data){
