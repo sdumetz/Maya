@@ -61,6 +61,7 @@ var init = function(){
             console.log("YOU LOOSE");
             return false;
           }else{
+            console.log("ressource stock :",ressource.stock );
             return true;
           }
         });
