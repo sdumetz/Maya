@@ -56,19 +56,26 @@ var init = function(){
         doc.cases.forEach(function(tile){
           model.updateRessources(tile);
         });
-        Object.keys(model.ressources).every(function(ressource){
-          if(ressource.stock < 0){
+        var res = Object.keys(model.ressources).every(function(ressource){
+          if(model.ressources[ressource].stock && model.ressources[ressource].stock < 0){
             console.log("YOU LOOSE");
             return false;
           }else{
-            console.log("ressource stock :",ressource.stock );
+
             return true;
           }
         });
-        io.to("room").emit('routine',{
-          ressources:model.ressources
-        })
-        setTimeout(routine,10000);
+        if(!res){
+          //We lost the game
+          io.to("room").emit("victory",false);
+          setTimeout(process.exit,500);
+        }else{
+          io.to("room").emit('routine',{
+            ressources:model.ressources
+          })
+          setTimeout(routine,10000);
+        }
+
       });
     }
     routine();
