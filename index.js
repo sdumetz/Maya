@@ -28,7 +28,6 @@ io.on('connection', function (socket) {
       }else{
         console.log("socket.on Change :"+err);
       }
-
     })
   });
   socket.on("import",function(data){
@@ -41,31 +40,31 @@ io.on('connection', function (socket) {
     });
   })
 
-/******************************
- * Game Coroutines            *
- * ***************************/
-var routine = function(){
-  //Reset ressources that must be.
-  model.ressources.habitant.stock = 0;
-  model.fetch(function(err,doc){
-    doc.cases.forEach(function(tile){
-      model.updateRessources(tile);
+  /******************************
+   * Game Coroutines            *
+   * ***************************/
+  var routine = function(){
+    //Reset ressources that must be.
+    model.ressources.habitant.stock = 0;
+    model.fetch(function(err,doc){
+      doc.cases.forEach(function(tile){
+        model.updateRessources(tile);
+      });
+      Object.keys(model.ressources).every(function(ressource){
+        if(ressource.stock < 0){
+          console.log("YOU LOOSE");
+          return false;
+        }else{
+          return true;
+        }
+      });
+      io.to("room").emit('routine',{
+        ressources:model.ressources
+      })
+      setTimeout(routine,10000);
     });
-    Object.keys(model.ressources).every(function(ressource){
-      if(ressource.stock < 0){
-        console.log("YOU LOOSE");
-        return false;
-      }else{
-        return true;
-      }
-    });
-    io.to("room").emit('routine',{
-      ressources:model.ressources
-    })
-    setTimeout(routine,10000);
-  });
-}
-routine();
+  }
+  routine();
 
 
 });
