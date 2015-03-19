@@ -84,3 +84,47 @@ var init = function(){
   });
 }
 init();
+
+/****************
+ * DEMO MODE
+ * *************/
+ setTimeout(function(){
+   model.updateCell({x:5,y:5,contenu:"maison"},function(err,changedData){
+     if(!err){
+       console.log("changedData:",changedData)
+       io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
+     }else{
+       console.log("socket.on Change :"+err);
+     }
+   })
+ },2000)
+ setTimeout(function(){
+   model.updateCell({x:4,y:3,contenu:"maison"},function(err,changedData){
+     if(!err){
+       console.log("changedData:",changedData)
+       io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
+     }else{
+       console.log("socket.on Change :"+err);
+     }
+   })
+ },15000)
+ setTimeout(function(){
+   model.updateCell({x:4,y:5,contenu:"champs"},function(err,changedData){
+     if(!err){
+       console.log("changedData:",changedData)
+       io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
+     }else{
+       console.log("socket.on Change :"+err);
+     }
+   })
+ },5000)
+ setTimeout(function(){
+   model.updateCell({x:4,y:2,contenu:"foret"},function(err,changedData){
+     if(!err){
+       console.log("changedData:",changedData)
+       io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
+     }else{
+       console.log("socket.on Change :"+err);
+     }
+   })
+ },6000)
