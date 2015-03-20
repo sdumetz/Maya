@@ -4,6 +4,7 @@
   <link href="/dist/tiles.css" rel="stylesheet" type="text/css">
   <script src="/socket.io/socket.io.js"></script>
   <script src="/vendor/jquery/dist/jquery.js"></script>
+  <script src="https://code.createjs.com/easeljs-0.8.0.min.js"></script>
   <script src="/dist/bundle.js"></script>
 </head>
 
@@ -23,8 +24,8 @@
 	  <img id="menu-champs" src="img/champs.png"/>
     <img id="menu-foret" src="img/foret.png"/>
   </div>
-  <div id="content">
-  </div>
+  <canvas id="content" height="600" width="800"></canvas>
+
   <img id="game-over" src="/img/gameover.png"/>
 </body>
 </html>
