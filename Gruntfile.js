@@ -38,14 +38,29 @@ module.exports = function(grunt) {
           quiet: true
         }
       }
+    },
+    mochaTest: {
+      test: {
+          options:{
+          reporter:"spec",
+          ui:"bdd",
+          require:"./test/common.js",
+          colors:true,
+          timeout:2000
+        },
+        src: ['test/**/*.js']
+      }
     }
+
+
   });
 
   grunt.loadNpmTasks('grunt-bower');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-supervisor');
   grunt.loadNpmTasks('grunt-contrib-less');
-
+  grunt.loadNpmTasks('grunt-mocha-test');
   grunt.registerTask('install', ['bower',"browserify","less"]);
   grunt.registerTask('start', ["less","browserify","supervisor"]);
+  grunt.registerTask('test', ["mochaTest"]);
 };

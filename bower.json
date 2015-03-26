@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
+    "easeljs":"*",
     "components-bootstrap": "~3.1.1"
   },
   "moduleType": [
