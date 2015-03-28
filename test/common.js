@@ -6,5 +6,18 @@ chai.use(chaithings);
 global.expect = chai.expect;
 
 
-var Utils = require("../lib/Utils");
-global.Utils = Utils;
+
+global.Utils = require("../lib/client/Utils");
+global.Model = require("../lib/client/Model.js")
+global.Sync = require("../lib/client/Sync.js")
+
+/**
+ * CreateJs emulation
+ */
+
+global.createjs = {
+  Bitmap: function(src){
+    this.src = src;
+    return this;
+  }
+}

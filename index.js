@@ -3,7 +3,7 @@ var path = require("path")
   , app = express()
   , server = require('http').Server(app)
   , io = require('socket.io')(server)
-  , Model = require("./lib/model");
+  , Model = require("./lib/Model");
 
 
 var model = new Model();
@@ -30,7 +30,7 @@ var init = function(){
       model.updateCell(data,function(err,changedData){
         if(!err){
           console.log("changedData:",changedData)
-          io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
+          io.to('room').emit('update',changedData);
         }else{
           console.log("socket.on Change :"+err);
         }
@@ -89,40 +89,40 @@ init();
  * DEMO MODE
  * *************/
  setTimeout(function(){
-   model.updateCell({x:5,y:5,contenu:"maison"},function(err,changedData){
+   model.updateCell({x:5,y:5,content:"maison"},function(err,changedData){
      if(!err){
        console.log("changedData:",changedData)
-       io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
+       io.to('room').emit('update',changedData);
      }else{
        console.log("socket.on Change :"+err);
      }
    })
  },2000)
  setTimeout(function(){
-   model.updateCell({x:4,y:3,contenu:"maison"},function(err,changedData){
+   model.updateCell({x:4,y:3,content:"maison"},function(err,changedData){
      if(!err){
        console.log("changedData:",changedData)
-       io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
+       io.to('room').emit('update',changedData);
      }else{
        console.log("socket.on Change :"+err);
      }
    })
  },15000)
  setTimeout(function(){
-   model.updateCell({x:4,y:5,contenu:"champs"},function(err,changedData){
+   model.updateCell({x:4,y:5,content:"champs"},function(err,changedData){
      if(!err){
        console.log("changedData:",changedData)
-       io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
+       io.to('room').emit('update',changedData);
      }else{
        console.log("socket.on Change :"+err);
      }
    })
  },5000)
  setTimeout(function(){
-   model.updateCell({x:4,y:2,contenu:"foret"},function(err,changedData){
+   model.updateCell({x:4,y:2,content:"foret"},function(err,changedData){
      if(!err){
        console.log("changedData:",changedData)
-       io.to('room').emit('update',{tile:changedData,ressources:model.ressources});
+       io.to('room').emit('update',changedData);
      }else{
        console.log("socket.on Change :"+err);
      }
