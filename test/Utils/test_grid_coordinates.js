@@ -23,6 +23,17 @@ describe("Utils.Grid : coordinates",function(){
         expect(page.y).to.equal(results[index].y);
       })
     })
+    it("with origin",function(){
+      var options = {origin:{x:1000,y:500},tile_size:200};
+      var count = 5;
+      var tests = [{x:0,y:0}];
+      var results = [{x:1000,y:500}];
+      tests.forEach(function(test,index){
+        var page = Utils.Grid.getPageCoordinates(test.x,test.y,options);
+        expect(page.x).to.equal(results[index].x);
+        expect(page.y).to.equal(results[index].y);
+      })
+    })
   })
   describe("compute map coordinates",function(){
     it("without offset",function(){
@@ -47,6 +58,17 @@ describe("Utils.Grid : coordinates",function(){
         expect(page.y).to.equal(results[index].y);
       })
     })
+    it("with origin",function(){
+      var options = {origin:{x:500,y:500},tile_size:200};
+      var count = 5;
+      var tests = [{x:500,y:500}];
+      var results = [{x:0,y:0}];
+      tests.forEach(function(test,index){
+        var page = Utils.Grid.getMapCoordinates(test.x,test.y,options);
+        expect(page).to.deep.equal(results[index]);
+      })
+    })
+
   })
   it("coordinates conversion should be reversible", function(){
     var options = {offset:{x:0,y:0},tile_size:200};
