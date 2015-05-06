@@ -1,14 +1,14 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    browserify: {
-      dev: {
-        src: "lib/client/index.js",
-        dest:"public/dist/bundle.js",
-      },
+    concat:{
       options: {
-        watch:true,
-        ignore:"nedb"
+        sourceMap:true,
+        separator: ';'
+      },
+      dist: {
+        src: ['lib/client/**/*.js',"lib/model/embedded-model.js"],
+        dest: 'public/dist/bundle.js',
       }
     },
     bower: {
@@ -38,14 +38,21 @@ module.exports = function(grunt) {
           quiet: true
         }
       }
+    },
+    jshint: { // configure the task
+      // lint your project's server code
+      client: [ // some example files
+        'lib/client/**/*.js',
+      ]
     }
   });
 
   grunt.loadNpmTasks('grunt-bower');
-  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-supervisor');
   grunt.loadNpmTasks('grunt-contrib-less');
-
-  grunt.registerTask('install', ['bower',"browserify","less"]);
-  grunt.registerTask('start', ["less","browserify","supervisor"]);
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.registerTask('install', ['bower',"concat","less"]);
+  grunt.registerTask('start', ["less","concat","supervisor"]);
+  grunt.registerTask('test', ["jshint"]);
 };

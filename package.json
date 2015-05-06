@@ -5,7 +5,7 @@
   "scripts": {
      "prepublish": "./node_modules/.bin/grunt install",
     "start": "./node_modules/.bin/grunt start",
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/grunt test"
   },
   "main": "index.js",
   "os": [
@@ -21,9 +21,10 @@
     "browserify":"*",
     "grunt":"*",
     "grunt-bower":"*",
-    "grunt-browserify":"*",
+    "grunt-contrib-concat":"*",
     "grunt-supervisor":"*",
-    "grunt-contrib-less":"*"
+    "grunt-contrib-less":"*",
+    "grunt-contrib-jshint":"*"
   },
   "devDependencies": {
     "supervisor":"*",
