@@ -1,6 +1,16 @@
 # Maya
 Maya is a city builder.
 
+## Roadmap
+
+  - Merge Canvas Branch
+  - Decide if we use creatjs for canvas management
+  - Make a simple REST API with basic query
+  - Make a simple grid display
+  - Add back drag & click support
+  - Extend REST API for data POST to server
+  - 
+
 ## Data model
 
 ### Basic

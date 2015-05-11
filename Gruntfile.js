@@ -41,9 +41,12 @@ module.exports = function(grunt) {
     },
     jshint: { // configure the task
       // lint your project's server code
-      client: [ // some example files
+      client: [
         'lib/client/**/*.js',
-      ]
+      ],
+      options:{
+        "laxcomma":true
+      }
     }
   });
 
