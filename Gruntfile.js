@@ -33,19 +33,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    supervisor: {
-      target: {
-        script: "index.js",
-        options: {
-          pollInterval: 500,
-          extensions: [ "js,jade,css,html" ],
-          exec: "node",
-          debug: false,
-          debugBrk: false,
-          quiet: true
-        }
-      }
-    },
     jshint: { // configure the task
       // lint your project's server code
       client: [
@@ -67,9 +54,26 @@ module.exports = function(grunt) {
           logErrors: true
         },
       }
+    },
+    supervisor: {
+      target: {
+        script: "index.js",
+        options: {
+          pollInterval: 500,
+          extensions: [ "js,node" ],
+          exec: "node",
+          debug: false,
+          debugBrk: false,
+          quiet: true
+        }
+      }
+    },
+    watch: {
+       files: ['<%= less.dev.options.paths %>','<%= concat.dist.src %>'],
+       tasks: ['less','concat:dist']
     }
   });
-
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-supervisor');
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -81,9 +85,8 @@ module.exports = function(grunt) {
   grunt.registerTask('client-test', 'Client javascript test', function() {
     grunt.log.writeln(this.name + " available on file://"+__dirname+"/test/client/index.html");
   });
-
-
+  //Directly used tasks :
   grunt.registerTask('install', ['bower:install',"concat","less"]);
-  grunt.registerTask('start', ["less","concat","supervisor"]);
+  grunt.registerTask('start', ["less","concat:dist","supervisor"]);
   grunt.registerTask('test', ["jshint","concat:tests","mocha"]);
 };

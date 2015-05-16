@@ -20,20 +20,22 @@
     "bower":"*",
     "browserify":"*",
     "grunt":"*",
-    "grunt-bower-task":"*",
-    "grunt-contrib-concat":"*",
-    "grunt-supervisor":"*",
-    "grunt-contrib-less":"*",
-    "grunt-contrib-jshint":"*",
-    "grunt-mocha-test":"*",
-    "grunt-mocha":"*"
+    "grunt-bower-task":"*"
+
   },
   "devDependencies": {
     "supervisor":"*",
     "mocha": "*",
     "chai": "*",
     "chai-things": "*",
-    "rewire": "*"
+    "rewire": "*",
+    "grunt-contrib-concat":"*",
+    "grunt-supervisor":"*",
+    "grunt-contrib-less":"*",
+    "grunt-contrib-jshint":"*",
+    "grunt-mocha-test":"*",
+    "grunt-mocha":"*",
+    "grunt-contrib-watch":"*"
   },
   "browser":{
     "name": "nedb",
