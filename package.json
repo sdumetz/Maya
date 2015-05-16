@@ -20,11 +20,13 @@
     "bower":"*",
     "browserify":"*",
     "grunt":"*",
-    "grunt-bower":"*",
+    "grunt-bower-task":"*",
     "grunt-contrib-concat":"*",
     "grunt-supervisor":"*",
     "grunt-contrib-less":"*",
-    "grunt-contrib-jshint":"*"
+    "grunt-contrib-jshint":"*",
+    "grunt-mocha-test":"*",
+    "grunt-mocha":"*"
   },
   "devDependencies": {
     "supervisor":"*",

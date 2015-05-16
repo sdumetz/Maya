@@ -1,5 +1,9 @@
 # Maya
-Maya is a city builder.
+Maya is a city builder aiming to have a strong population simulation.
+
+##ES6
+
+Maya relies quiete heavily on cutting-edge ES6 spec. See [es6.md](es6.md)
 
 ## Roadmap
 
@@ -9,7 +13,7 @@ Maya is a city builder.
   - Make a simple grid display
   - Add back drag & click support
   - Extend REST API for data POST to server
-  - 
+  -
 
 ## Data model
 

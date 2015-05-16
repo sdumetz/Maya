@@ -1,5 +1,7 @@
 node_modules/
 public/vendor/
 public/dist/
+test/client/tests.js
+test/client/tests.js.map
 npm-debug.log
 Thumbs.db
