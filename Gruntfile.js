@@ -39,6 +39,7 @@ module.exports = function(grunt) {
         'lib/client/**/*.js',
       ],
       options:{
+        "unused": true,
         "esnext":true,
         "laxcomma":true
       }
