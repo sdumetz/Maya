@@ -18,10 +18,8 @@
     "less-middleware": "*",
     "socket.io": "*",
     "bower":"*",
-    "browserify":"*",
     "grunt":"*",
     "grunt-bower-task":"*"
-
   },
   "devDependencies": {
     "supervisor":"*",
@@ -36,11 +34,5 @@
     "grunt-mocha-test":"*",
     "grunt-mocha":"*",
     "grunt-contrib-watch":"*"
-  },
-  "browser":{
-    "name": "nedb",
-    "version": "*",
-    "main": "index.js",
-    "browser": "browser-version/out/nedb.js"
   }
 }
