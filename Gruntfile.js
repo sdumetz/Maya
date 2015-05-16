@@ -88,5 +88,5 @@ module.exports = function(grunt) {
   //Directly used tasks :
   grunt.registerTask('install', ['bower:install',"concat","less"]);
   grunt.registerTask('start', ["less","concat:dist","supervisor"]);
-  grunt.registerTask('test', ["jshint","concat:tests","mocha"]);
+  grunt.registerTask('test', ["jshint","concat:tests","mocha","client-test"]);
 };
