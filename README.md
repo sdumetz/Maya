@@ -15,6 +15,16 @@ Maya relies quiete heavily on cutting-edge ES6 spec. See [es6.md](es6.md)
   - Extend REST API for data POST to server
   -
 
+## Docker
+This app is containerized.
+To create the image, run :
+    docker build -t maya ./
+
+To run the app, run :
+    docker run -p 8081:8080 -d maya
+
+App is then available on port 8081
+
 ## Data model
 
 ### Basic
