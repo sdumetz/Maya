@@ -24,6 +24,13 @@ To run the app, run :
     docker run -p 8080:8080 maya
     (or daemonize with the -d option)
 
+Data synchronization from src dir to container :
+    docker run -p 8080:8080 -v <absolute full path to work dir>:/src maya
+
+Other usefull commands :
+    docker run -v <absolute full path to work dir>:/src maya npm test
+    docker run maya npm install
+
 App is then available on port 8080
 
 ## Data model
