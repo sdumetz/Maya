@@ -19,7 +19,7 @@ describe("Model.getTile",function(){
     });
   })
   it("accept a center Object and a radius and return an array of tiles",function(){
-    model.getTile({x:0,y:0},count).then(function(tile){
+    model.getChunk(0,0,count).then(function(tile){
       for(var x = -count;x <= count;x++){
         for(var y = -count;y <= count;y++){
           expect(tile).to.contain.a.thing.that.equal(data+x+y);
