@@ -1,6 +1,10 @@
 describe("Sync.fetch",function(){
   beforeEach(function(){
     this.sync = new Sync({chunk:10});
+    this.sync.request = function(){
+      return new Promise(function(resolve,reject){
+      });
+    }
   })
   it("accept coordinates and return a Promise",function(){
     expect(this.sync.fetch(0,0)).to.be.instanceof(Promise);
