@@ -17,7 +17,7 @@
     "nedb":"*",
     "less-middleware": "*",
     "socket.io": "*",
-    "bower":"*",
+    "bower":"~1.3.0",
     "grunt":"*",
     "grunt-bower-task":"*"
   },
