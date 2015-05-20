@@ -21,9 +21,10 @@ To create the image, run :
     docker build -t maya ./
 
 To run the app, run :
-    docker run -p 8081:8080 -d maya
+    docker run -p 8080:8080 maya
+    (or daemonize with the -d option)
 
-App is then available on port 8081
+App is then available on port 8080
 
 ## Data model
 
