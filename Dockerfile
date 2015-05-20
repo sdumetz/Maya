@@ -4,6 +4,7 @@ MAINTAINER Sebastien Dumetz <s.dumetz@holusion.com>
 RUN apt-get update \
  && apt-get install -y --force-yes --no-install-recommends\
       nodejs \
+      nodejs-legacy \
       npm \
       apt-transport-https \
       build-essential \
